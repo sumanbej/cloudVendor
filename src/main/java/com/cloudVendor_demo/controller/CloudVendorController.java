@@ -8,10 +8,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/cloudVendor")
-public class CloudvendorAPIService {
+public class CloudVendorController {
 
     CloudVendorService cloudVendorService;
-    public CloudvendorAPIService(CloudVendorService cloudVendorService) {
+    public CloudVendorController(CloudVendorService cloudVendorService) {
         this.cloudVendorService = cloudVendorService;
     }
 
@@ -38,9 +38,9 @@ public class CloudvendorAPIService {
         return cloudVendor;
     }
     @DeleteMapping("{vendorId}")
-    public String deleteCloudVendor(@PathVariable("vendorId") String vendorId){
+    public void deleteCloudVendor(@PathVariable("vendorId") String vendorId){
         cloudVendorService.deleteCloudVendor(vendorId);
-        return "Cloud vendor with ID: " + vendorId + " deleted successfully.";
+
     }
 }
 
